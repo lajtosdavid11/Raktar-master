@@ -23,8 +23,6 @@ namespace Raktar
                  
                  */
                 string[] sor = sr.ReadLine().Split(';');
-                Console.WriteLine(sor[0]);
-                
                 
                 termekek.Add(new Termek(sor[0], sor[1],int.Parse(sor[2]),int.Parse(sor[3])));
                 
