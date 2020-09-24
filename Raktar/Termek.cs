@@ -41,11 +41,39 @@ namespace Raktar
         public Termek (string kod, string nev, int ar,int db )
         {
             this.kod = kod;
-            this.nev = nev;
+            this.nev = alakit(nev);
             this.ar = ar;
             this.db = db;
+            
 
 
+        }
+
+        private string alakit(string szoveg)
+        {
+            string tmp = "";
+            
+            string ekezetes = "áéíóöőüúű";
+            string mire = "aeiooouuu";
+            
+            
+
+            for (int i = 0; i < szoveg.Length; i++)
+            {
+                int hol = ekezetes.IndexOf(szoveg[i]);
+                if (hol > -1)
+                {
+                    tmp += mire[hol];
+                }
+                else
+                {
+                    tmp += szoveg[i];
+                }
+
+            }
+            
+
+            return tmp;
         }
 
 

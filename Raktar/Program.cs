@@ -26,24 +26,26 @@ namespace Raktar
                 
                 termekek.Add(new Termek(sor[0], sor[1],int.Parse(sor[2]),int.Parse(sor[3])));
                 
-
-
             }
 
             sr.Close();
+            //Console.WriteLine(termekek[0].Nev);
 
 
-            for (int i = 0; i < termekek.Count; i++)
-            {
-                Console.WriteLine(termekek[i].KOD);
-            }
+            //for (int i = 0; i < termekek.Count; i++)
+            //{
+            //    Console.WriteLine(termekek[i].KOD);
+            //}
         }
         static void Main(string[] args)
         {
             beolvas_raktar();
+            foreach (var t in termekek)
+            {
+                Console.WriteLine(t.Nev);
+            }
+
             
-
-
             Console.ReadKey();
         }
     }
