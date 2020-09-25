@@ -20,7 +20,7 @@ namespace Raktar
             {
                 /*
                  sor[0] -> kod
-                 sor[1] -> ár stb
+                 sor[1] -> ár stb 
                  
                  */
                 string[] sor = sr.ReadLine().Split(';');
@@ -45,18 +45,26 @@ namespace Raktar
             StreamReader sr = new StreamReader("rendeles.csv");
             while (!sr.EndOfStream)
             {
-                string[] sor = sr.ReadLine().Split(';');
-                if (sor[0] == "M")
+                string sor = sr.ReadLine();
+                string[] adat = sor.Split(';');
+                if (adat[0] == "M")
                 {
-                    rendeles.Add(new Megrendeles(sor[1], sor[2], sor[3]));
+                    rendeles.Add(new Megrendeles(adat[1], adat[2], adat[3]));
+                }
+                else
+                {
+                    //rendeles[rendeles.Count - 1].termekek.Add(sor);
+                    rendeles[rendeles.Count - 1].TetelHozzaad(adat[2],int.Parse(adat[3]));
                 }
                 
+
+
             }
             sr.Close();
-            for (int i = 0; i < rendeles.Count; i++)
-            {
-                Console.WriteLine(rendeles[i].EMAIL);
-            }
+           //for (int i = 0; i < rendeles.Count; i++)
+           // {
+           //     Console.WriteLine(rendeles[i].EMAIL);
+           // }
         }
 
 
